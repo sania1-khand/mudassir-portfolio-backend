@@ -87,7 +87,7 @@ app.delete("/api/projects/:id", (req, res) => {
 
   writeProjects(filteredProjects);
 
-  res.json({ message: "Project deleted successfully" });
+  res.json({ message: "Project deleted successfully" }); 
 });
 
 const PORT = process.env.PORT || 5000;
