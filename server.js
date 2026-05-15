@@ -9,6 +9,15 @@ app.use(cors());
 app.use(express.json());
 
 const filePath = path.join(__dirname, "data", "projects.json");
+const dataDir = path.join(__dirname, "data");
+
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir);
+}
+
+if (!fs.existsSync(filePath)) {
+  fs.writeFileSync(filePath, "[]");
+}
 
 function readProjects() {
   const data = fs.readFileSync(filePath, "utf-8");
